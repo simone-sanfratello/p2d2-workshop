@@ -1,0 +1,7 @@
+FROM postgres:11.6-alpine
+
+ENV POSTGRES_USER=prague
+ENV POSTGRES_PASSWORD=prague
+ENV POSTGRES_DB=prague
+
+COPY /sql/init.sql /docker-entrypoint-initdb.d/
