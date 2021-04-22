@@ -7,7 +7,7 @@ const fs = require('fs-extra')
  * add index service to server
  * @param {Fastify} - fastify instance
  */
-const main = function (fastify) {
+const main = async function (fastify) {
   fastify.get('/', async (request, response) => {
     response
       .type('text/html; encoding=utf-8')

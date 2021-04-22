@@ -1,18 +1,21 @@
 'use strict'
 
+const path = require('path')
+const plugin = require('fastify-plugin')
+
 /**
  * add swagger plugin to fastify instance
  * return function to be applied after fastify is ready
  * @param {Fastify} - fastify instance
  * @return {function()}
  */
-const documentation = function (fastify) {
+const documentation = async function (fastify) {
   fastify.register(require('fastify-swagger'), {
     swagger: {
       info: {
         title: 'Prague POI API',
         description: 'Prague POI API - testing api',
-        version: '1.0.0'
+        version: require(path.join(__dirname, '../package.json')).version
       },
       schemes: ['http'],
       consumes: ['application/json'],
@@ -24,4 +27,4 @@ const documentation = function (fastify) {
   return () => { fastify.swagger() }
 }
 
-module.exports = documentation
+module.exports = plugin(documentation)

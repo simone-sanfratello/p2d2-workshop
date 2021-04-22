@@ -43,16 +43,6 @@ settings.server = {
   host: '0.0.0.0'
 }
 
-settings.services = [
-  path.join(__dirname, '../services/index'),
-  path.join(__dirname, '../services/poi'),
-  path.join(__dirname, '../services/events')
-]
-
-settings.plugins = [
-  path.join(__dirname, '../plugins/documentation')
-]
-
 settings.monitor = {
   sql: true
 }

@@ -1,6 +1,5 @@
 'use strict'
 
-const moment = require('moment')
 const db = require('../lib/db')
 const service = require('../lib/service')
 
@@ -8,7 +7,8 @@ const service = require('../lib/service')
  * add poi services to server
  * @param {Fastify} - fastify instance
  */
-const poi = function (fastify) {
+const poi = async function (fastify) {
+  console.log('load poi')
   fastify.route({
     method: 'GET',
     url: '/poi/:id',
@@ -309,7 +309,7 @@ const poi = function (fastify) {
         const poi0 = poi[0]
         poi0.events = poi0.events.map(event => ({
           id: event.id,
-          date: moment(event.date).format('YYYY-MM-DD'),
+          date: event.date,
           title: event.title,
           description: event.description
         }))

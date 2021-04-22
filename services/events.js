@@ -1,6 +1,5 @@
 'use strict'
 
-const moment = require('moment')
 const db = require('../lib/db')
 const service = require('../lib/service')
 
@@ -8,7 +7,8 @@ const service = require('../lib/service')
  * add events services to server
  * @param {Fastify} - fastify instance
  */
-const events = function (fastify) {
+const events = async function (fastify) {
+  console.log('events')
   fastify.route({
     method: 'GET',
     url: '/events',
@@ -46,7 +46,7 @@ const events = function (fastify) {
         const events = (await db.instance.events.find(filter))
           .map(event => ({
             id: event.id,
-            date: moment(event.date).format('YYYY-MM-DD'),
+            date: event.date,
             title: event.title,
             description: event.description
           }))
