@@ -60,7 +60,7 @@ const poi = function (fastify) {
         required: ['name']
       },
       response: {
-        200: {
+        201: {
           type: 'object',
           properties: {
             id: { type: 'number' },
