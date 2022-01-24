@@ -33,3 +33,8 @@ docker ps
 ```
 
 App runs at http://localhost:9002/
+
+---
+
+notes: the tests are chained on purpose
+
